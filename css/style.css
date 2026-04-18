@@ -466,7 +466,7 @@ body {
         font-size: 3rem;
     }
     
-    .nav-links {
+    .nav-links li:not(.lang-toggle) {
         display: none; /* Add hamburger menu in future phase */
     }
 }
