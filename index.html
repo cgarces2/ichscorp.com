@@ -12,8 +12,18 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICHS | International Crating & Hazmat Services</title>
-    <meta name="description" content="Your Strategic Partner in Compliance, Logistics, and Transportation. Led by Claudia Garces.">
+    <title>ICHS | International Crating & Hazmat Services — Simpsonville, SC</title>
+    <meta name="description" content="Expert hazmat compliance, logistics consulting, and transportation services led by Claudia Garces — 30+ years of experience. IMDG, IATA, DOT certified. Serving global clients from Simpsonville, SC.">
+    <meta name="keywords" content="hazmat services, compliance consulting, logistics, IMDG, IATA, DOT, OSHA, precious metals transport, crating services, Simpsonville SC">
+    <meta name="author" content="Claudia Garces, ICHS">
+    <meta property="og:title" content="ICHS | International Crating & Hazmat Services">
+    <meta property="og:description" content="Expert hazmat compliance, logistics consulting, and transportation services led by Claudia Garces — 30+ years of experience.">
+    <meta property="og:url" content="https://www.ichscorp.com">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://www.ichscorp.com">
+    <link rel="alternate" hreflang="en" href="https://www.ichscorp.com/">
+    <link rel="alternate" hreflang="es" href="https://www.ichscorp.com/index_es.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.ichscorp.com/">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +39,10 @@
                 <span class="logo-bold">ICHS</span>
                 <span class="logo-light">INTL CRATING & HAZMAT</span>
             </a>
-            <ul class="nav-links">
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#services">Our Services</a></li>
                 <li><a href="#about">About Claudia</a></li>
                 <li><a href="#education">Corporate Training</a></li>
@@ -168,19 +181,24 @@
                     </ul>
                 </div>
                 <div class="contact-form">
-                    <form onsubmit="event.preventDefault(); alert('This is a prototype. Form submission will be connected to your email backend later.');">
+                    <form id="contact-form" action="https://formspree.io/f/xpwzgkpb" method="POST">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" placeholder="John Doe" required>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
                         </div>
                         <div class="form-group">
                             <label for="company">Company</label>
-                            <input type="text" id="company" placeholder="Acme Logistics" required>
+                            <input type="text" id="company" name="company" placeholder="Acme Logistics" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Work Email</label>
-                            <input type="email" id="email" placeholder="john@acme.com" required>
+                            <input type="email" id="email" name="email" placeholder="john@acme.com" required>
                         </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your logistics needs..." rows="4" required></textarea>
+                        </div>
+                        <div id="form-status" style="display:none; margin-bottom: 15px; padding: 12px; border-radius: 4px; font-weight: 600;"></div>
                         <button type="submit" class="btn btn-primary full-width">Get in Touch</button>
                     </form>
                 </div>

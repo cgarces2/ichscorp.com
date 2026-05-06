@@ -12,8 +12,18 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICHS | Servicios Internacionales de Embalaje y Materiales Peligrosos</title>
-    <meta name="description" content="Su Socio Estratégico en Cumplimiento, Logística y Transporte. Liderado por Claudia Garcés.">
+    <title>ICHS | Servicios Internacionales de Embalaje y Materiales Peligrosos — Simpsonville, SC</title>
+    <meta name="description" content="Expertos en cumplimiento de materiales peligrosos, consultoría logística y servicios de transporte liderados por Claudia Garcés — más de 30 años de experiencia. Certificaciones IMDG, IATA, DOT. Sirviendo clientes globales desde Simpsonville, SC.">
+    <meta name="keywords" content="servicios hazmat, consultoría de cumplimiento, logística, IMDG, IATA, DOT, OSHA, transporte metales preciosos, servicios de embalaje, Simpsonville SC">
+    <meta name="author" content="Claudia Garcés, ICHS">
+    <meta property="og:title" content="ICHS | Servicios Internacionales de Embalaje y Materiales Peligrosos">
+    <meta property="og:description" content="Expertos en cumplimiento de materiales peligrosos, consultoría logística y servicios de transporte liderados por Claudia Garcés — más de 30 años de experiencia.">
+    <meta property="og:url" content="https://www.ichscorp.com/index_es.html">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://www.ichscorp.com/index_es.html">
+    <link rel="alternate" hreflang="en" href="https://www.ichscorp.com/">
+    <link rel="alternate" hreflang="es" href="https://www.ichscorp.com/index_es.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.ichscorp.com/">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +39,10 @@
                 <span class="logo-bold">ICHS</span>
                 <span class="logo-light">INTL CRATING & HAZMAT</span>
             </a>
-            <ul class="nav-links">
+            <button class="hamburger" id="hamburger" aria-label="Alternar navegación" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#services">Nuestros Servicios</a></li>
                 <li><a href="#about">Sobre Claudia</a></li>
                 <li><a href="#education">Capacitación Corporativa</a></li>
@@ -168,19 +181,25 @@
                     </ul>
                 </div>
                 <div class="contact-form">
-                    <form onsubmit="event.preventDefault(); alert('Este es un prototipo. El envío del formulario se conectará a su sistema de correo más adelante.');">
+                    <form id="contact-form" action="https://formspree.io/f/xpwzgkpb" method="POST">
+                        <input type="hidden" name="_language" value="es">
                         <div class="form-group">
                             <label for="name">Nombre</label>
-                            <input type="text" id="name" placeholder="Juan Pérez" required>
+                            <input type="text" id="name" name="name" placeholder="Juan Pérez" required>
                         </div>
                         <div class="form-group">
                             <label for="company">Empresa</label>
-                            <input type="text" id="company" placeholder="Logística Acme" required>
+                            <input type="text" id="company" name="company" placeholder="Logística Acme" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Correo de Trabajo</label>
-                            <input type="email" id="email" placeholder="juan@acme.com" required>
+                            <input type="email" id="email" name="email" placeholder="juan@acme.com" required>
                         </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" placeholder="Cuéntenos sobre sus necesidades logísticas..." rows="4" required></textarea>
+                        </div>
+                        <div id="form-status" style="display:none; margin-bottom: 15px; padding: 12px; border-radius: 4px; font-weight: 600;"></div>
                         <button type="submit" class="btn btn-primary full-width">Contáctenos</button>
                     </form>
                 </div>
