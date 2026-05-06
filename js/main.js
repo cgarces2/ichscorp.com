@@ -82,6 +82,37 @@ const observeElements = () => {
     animatedElements.forEach(el => observer.observe(el));
 };
 
+// WebP fallback — if browser doesn't support WebP, swap to PNG
+(function() {
+    const img = new Image();
+    img.onload = img.onerror = function() {
+        if (img.height !== 2) {
+            document.documentElement.classList.add('no-webp');
+        }
+    };
+    img.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+})();
+
+// Cookie consent banner
+function initCookieBanner() {
+    if (localStorage.getItem('ichs-cookie-consent')) return;
+    const isSpanish = document.documentElement.lang === 'es';
+    const banner = document.createElement('div');
+    banner.id = 'cookie-banner';
+    banner.innerHTML = `
+        <p>${isSpanish
+            ? 'Usamos cookies de análisis para mejorar su experiencia. Al continuar, acepta nuestra política de privacidad.'
+            : 'We use analytics cookies to improve your experience. By continuing, you accept our privacy policy.'
+        }</p>
+        <button id="cookie-accept">${isSpanish ? 'Aceptar' : 'Accept'}</button>
+    `;
+    document.body.appendChild(banner);
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+        localStorage.setItem('ichs-cookie-consent', '1');
+        banner.remove();
+    });
+}
+
 // Initialize after DOM load
 document.addEventListener('DOMContentLoaded', () => {
     // Trigger scroll event once to set initial navbar state
@@ -89,6 +120,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start observing tags for animations
     observeElements();
+
+    // Cookie consent
+    initCookieBanner();
 
     // Hamburger menu toggle
     const hamburger = document.getElementById('hamburger');

@@ -214,7 +214,7 @@ body {
 .hero {
     height: 100vh;
     min-height: 700px;
-    background-image: url('../assets/hero_bg.png');
+    background-image: url('../assets/hero_bg.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -460,6 +460,53 @@ body {
     font-size: 1rem;
     transition: var(--transition);
     resize: vertical;
+}
+
+/* WebP fallback */
+.no-webp .hero {
+    background-image: url('../assets/hero_bg.png');
+}
+
+/* Cookie consent banner */
+#cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(11, 19, 43, 0.97);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 18px 5%;
+    z-index: 9999;
+    border-top: 2px solid var(--color-gold);
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+#cookie-banner p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-gray-text);
+}
+
+#cookie-accept {
+    background: var(--color-gold);
+    color: var(--color-navy-dark);
+    border: none;
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+#cookie-accept:hover {
+    background: var(--color-gold-hover);
 }
 
 /* Footer */
